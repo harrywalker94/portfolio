@@ -11,7 +11,7 @@ const mainFn = () => {
   }
 
   sections.forEach((section, i) => {
-    if (window.pageYOffset >= section.offsetTop - 10) {
+    if (window.pageYOffset >= section.offsetTop) {
       navbarLinks.forEach((navbarLink) => {
         navbarLink.classList.remove("change");
       });
@@ -20,14 +20,12 @@ const mainFn = () => {
   });
 };
 
-$(window).resize(function(){
-  if ($(window).width() > 700){  
+ 
     window.addEventListener("scroll", () => {
       mainFn();
     });
     mainFn();
-  }   
-}); 
+
 
 
 
