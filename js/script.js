@@ -3,10 +3,6 @@ const navbarOffsetTop = navbar.offsetTop;
 const sections = document.querySelectorAll("section");
 const navbarLinks = document.querySelectorAll(".navbar-link");
 
-window.addEventListener("scroll", () => {
-  mainFn();
-});
-
 const mainFn = () => {
   if (window.pageYOffset >= navbarOffsetTop) {
     navbar.classList.add("sticky");
@@ -23,9 +19,17 @@ const mainFn = () => {
     }
   });
 };
-mainFn();
+
+$(window).resize(function(){
+  if ($(window).width() > 700){  
+    window.addEventListener("scroll", () => {
+      mainFn();
+    });
+    mainFn();
+  }   
+}); 
 
 
-window.addEventListener("resize", () => {
-  window.location.reload();
-});
+
+
+
