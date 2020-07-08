@@ -489,6 +489,9 @@
         .progress-bar {
             width: 50rem;
         }
+        .navbar {
+            display: none;
+        }
     }
     
     @media (max-width: 600px) {
