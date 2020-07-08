@@ -3,10 +3,12 @@ const navbarOffsetTop = navbar.offsetTop;
 const sections = document.querySelectorAll("section");
 const navbarLinks = document.querySelectorAll(".navbar-link");
 
-
 window.addEventListener("scroll", () => {
   mainFn();
 });
+
+
+
 
 const mainFn = () => {
   if (window.pageYOffset >= navbarOffsetTop) {
@@ -24,9 +26,6 @@ const mainFn = () => {
     }
   });
 };
-
 mainFn();
 
-window.addEventListener("resize", () => {
-  window.location.reload();
-});
+
