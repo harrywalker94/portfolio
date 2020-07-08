@@ -7,7 +7,7 @@ const navbarLinks = document.querySelectorAll(".navbar-link");
 window.addEventListener("scroll", () => {
   mainFn();
 });
-/*
+
 const mainFn = () => {
   if (window.pageYOffset >= navbarOffsetTop) {
     navbar.classList.add("sticky");
@@ -24,7 +24,6 @@ const mainFn = () => {
     }
   });
 };
-*/
 
 mainFn();
 
