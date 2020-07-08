@@ -178,21 +178,6 @@
         color: #fff;
     }
     
-    .navbar-link::before {
-        content: "";
-        width: 0;
-        height: 0.2rem;
-        background-color: #fff;
-        position: absolute;
-        right: -15%;
-        bottom: -0.3rem;
-        transition: width 0.2s;
-    }
-    
-    .change.navbar-link::before {
-        width: 130%;
-    }
-    
     .navbar-link:hover::before {
         width: 130%;
     }
