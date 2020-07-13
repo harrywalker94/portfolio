@@ -37,12 +37,12 @@
     
     .section-heading {
         font-size: 5rem;
-        color: var(--black);
+        color: var(--grey);
         text-transform: uppercase;
         letter-spacing: 0.5rem;
         margin-bottom: 15rem;
-        border-bottom: 0.3rem solid var(--black);
-        text-shadow: 0.2rem 0.2rem 0.5rem var(--black);
+        border-bottom: 0.3rem solid var(--grey);
+        text-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.5);
     }
     /* End Global Styles */
     /* Section 1 */
@@ -149,7 +149,7 @@
     .navbar {
         width: 100%;
         height: 4rem;
-        background-color: #e41c6f;
+        background-color: var(--blue);
         box-shadow: 0.2rem 0.2rem 0.5rem #555;
         position: absolute;
         z-index: 400;
@@ -160,7 +160,7 @@
         position: fixed;
         width: 100%;
         height: 4rem;
-        background-color: #e41c6f;
+        background-color: var(--blue);
         box-shadow: 0.2rem 0.2rem 0.5rem #555;
         position: absolute;
         z-index: 400;
@@ -174,7 +174,7 @@
     .navbar-link {
         font-size: 1.7rem;
         font-weight: 600;
-        color: #333;
+        color: var(--black);
         margin: 0 3rem;
         letter-spacing: 0.3rem;
         text-transform: uppercase;
@@ -183,18 +183,18 @@
     }
     
     .change.navbar-link {
-        color: #fff;
+        color: var(--white);
     }
     
     .navbar-link:hover {
-        color: #fff;
+        color: var(--white);
     }
     
     .navbar-link::before {
         content: "";
         width: 0;
         height: 0.2rem;
-        background-color: #fff;
+        background-color: var(--white);
         position: absolute;
         right: -15%;
         bottom: -0.3rem;
@@ -211,83 +211,79 @@
     /* End of Navbar */
     /* Section 2 */
     
+    .section-2-heading {
+        border-bottom: none;
+        text-shadow: none;
+        color: var(--black);
+    }
+    
+    .section-2-title {
+        margin-bottom: 0.25rem;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .section-2-subtitle {
+        background: var(--blue);
+        color: var(--white);
+        padding: 1.5rem 2rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 .5rem 2rem rgba(0, 0, 0, 0.4);
+        font-size: 3rem;
+        letter-spacing: .5rem;
+    }
+    
+    .section-2-text {
+        padding: 5rem;
+        font-size: 1.7rem;
+        color: var(--black);
+    }
+    
     .section-2 {
-        width: 100%;
-        height: 100%;
-        padding: 15rem 0 10rem 0;
-        background-color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        max-width: 1100px;
+        max-height: 100%;
+        margin: 0 auto;
+        padding: 20rem 1rem;
     }
     
-    .progress-bars-wrapper {
-        margin-bottom: 10rem;
+    @media (max-width: 700px) {
+        .section-2-text {
+            padding: 2rem;
+            font-size: 1.3rem;
+        }
+        .section-2-subtitle {
+            font-size: 2rem;
+        }
     }
     
-    .progress-bar {
-        width: 60rem;
-        height: 3rem;
-        background-color: #ccc;
-        margin: 1.5rem 0;
-        border-radius: 0.3rem;
-        box-shadow: 0.2rem 0.2rem 1rem #555;
-        position: relative;
-    }
-    
-    .progress-text {
-        position: absolute;
-        left: 1rem;
-        font-size: 1.5rem;
-        color: #fff;
-    }
-    
-    .progress-text span {
-        margin: 0 0.5rem;
-        font-size: 1.8rem;
-        font-weight: 700;
-    }
-    
-    .progress-percent {
-        width: 0;
-        height: 100%;
-        background-color: #e41c6f;
-        border-radius: 0.3rem;
-        transition: width 0.5s 0.5s ease-in-out;
-    }
-    
-    .services {
-        width: 100%;
-        height: 30vh;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-    
-    .service {
-        text-align: center;
-    }
-    
-    .service:first-child,
-    .service:last-child {
-        align-self: flex-start;
-    }
-    
-    .service i {
-        font-size: 10rem;
-        color: #888;
-        margin-bottom: 2rem;
-        text-shadow: 0.1rem 0.1rem 0.5rem #555;
-    }
-    
-    .service h2 {
-        font-size: 2rem;
-        color: #fff;
-        background-color: #777;
-        width: 25rem;
-        letter-spacing: 0.3rem;
-        transform: skew(-10deg);
-        box-shadow: 0.2rem 0.2rem 0.5rem #555;
+    @media (min-width: 600px) {
+        .section-2 {
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            grid-template-areas: "title div" "subtitle div" "text div";
+            grid-column-gap: 2em;
+        }
+        .section-2-grid {
+            grid-area: title;
+        }
+        .subtitle-grid {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            position: relative;
+            left: -1em;
+            width: calc(100% + 2em);
+            padding-left: 1em;
+            padding-right: calc(200px + 4em);
+        }
+        .section-2-div {
+            grid-area: div;
+            position: relative;
+            z-index: 2;
+            display: block;
+            max-width: 3rem;
+            height: 100%;
+            background: var(--blue);
+        }
     }
     /* End of Section 2 */
     /* Section 3 */
@@ -296,10 +292,15 @@
         width: 100%;
         height: 100%;
         padding: 10rem 0;
-        background-color: #eef;
+        background-color: var(--grey);
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    
+    .section-3-heading {
+        color: var(--white);
+        border-bottom: .3rem solid var(--white);
     }
     
     .projects-wrapper {
@@ -313,15 +314,15 @@
         justify-content: center;
         align-items: center;
         margin: 1rem;
-        background-color: #fff;
-        box-shadow: 0.3rem 0.3rem 0.5rem #777;
+        background-color: var(--white);
+        box-shadow: 0.3rem 0.3rem 0.5rem var(--grey);
         position: relative;
         overflow: hidden;
         transition: box-shadow 0.5s;
     }
     
     .project:hover {
-        box-shadow: 1rem 1rem 1rem #777;
+        box-shadow: 1rem 1rem 1rem var(--grey);
     }
     
     .project-text {
@@ -341,13 +342,13 @@
     .project-name {
         font-size: 3rem;
         font-weight: 700;
-        color: #333;
+        color: var(--black);
         text-transform: capitalize;
     }
     
     .project-technologies {
         font-size: 1.8rem;
-        color: #e41c6f;
+        color: var(--blue);
     }
     
     .project-img {
@@ -362,11 +363,11 @@
     .project-link {
         font-size: 2rem;
         font-weight: 500;
-        color: #333;
+        color: var(--blue);
         letter-spacing: 0.1rem;
-        border: 0.3rem solid #e41c6f;
+        border: 0.3rem solid var(--blue);
         padding: 0 1rem;
-        background-color: #fff;
+        background-color: var(--white);
         position: absolute;
         bottom: -5rem;
         transition: bottom 0.3s;
@@ -382,7 +383,7 @@
     .section-4 {
         width: 100%;
         height: 70vh;
-        background-color: #333;
+        background-color: var(--black);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -390,9 +391,9 @@
     }
     
     .section-4-heading {
-        color: #fff;
+        color: var(--white);
         box-shadow: none;
-        border-color: #fff;
+        border-color: var(--white);
         margin-bottom: 5rem;
     }
     
@@ -406,10 +407,10 @@
         width: 100%;
         padding: 0.5rem;
         margin: 0.5rem 0;
-        background-color: #eef;
+        background-color: var(--white);
         font-size: 1.5rem;
-        border: 0.2rem solid #e41c6f;
-        color: #555;
+        border: 0.2rem solid var(--blue);
+        color: var(--black);
     }
     
     .contact-form textarea {
@@ -419,8 +420,8 @@
     }
     
     .contact-form .contact-form-btn {
-        background-color: #e41c6f;
-        color: #fff;
+        background-color: var(--blue);
+        color: var(--white);
         text-transform: uppercase;
         letter-spacing: 1rem;
         cursor: pointer;
@@ -431,7 +432,7 @@
     .section-5 {
         width: 100%;
         height: 30vh;
-        background-color: #222;
+        background-color: var(--black);
         flex-direction: column;
     }
     
@@ -442,22 +443,14 @@
     .social-media-link {
         margin: 0 2rem;
         padding: 0.7rem;
-        background-color: #e41c6f;
+        background-color: var(--blue);
         border-radius: 0.5rem;
         display: inline-block;
     }
     
     .social-media-link i {
         font-size: 3rem;
-        color: #fff;
-    }
-    
-    .copyright {
-        color: #aaa;
-        font-size: 2rem;
-        letter-spacing: 0.2rem;
-        font-weight: 300;
-        text-align: center;
+        color: var(--white);
     }
     /* End of Section 5 */
     
@@ -515,25 +508,25 @@
             position: fixed;
             width: 100%;
             height: 6rem;
-            background-color: #e41c6f;
-            box-shadow: 0.2rem 0.2rem 0.5rem #555;
+            background-color: var(--blue);
+            box-shadow: 0.2rem 0.2rem 0.5rem var(--grey);
             z-index: 400;
             top: 0;
         }
         .nav-link {
             font-size: 1.4rem;
             font-weight: 600;
-            color: #333;
+            color: var(--black);
             margin: 0 1rem;
             letter-spacing: 0.3rem;
             text-transform: uppercase;
             transition: color 0.2s;
         }
         .nav-link:hover {
-            color: #fff;
+            color: var(--white);
         }
         .nav-link:active {
-            color: #fff;
+            color: var(--white);
         }
     }
     
@@ -548,9 +541,6 @@
         }
         .section-2 {
             padding: 10rem;
-        }
-        .section-2-heading {
-            margin-bottom: 10rem;
         }
         .progress-bar {
             width: 45rem;
@@ -584,9 +574,6 @@
         }
         .navbar-link {
             margin: 0 1.5rem;
-        }
-        .section-2-heading {
-            text-align: center;
         }
         .progress-bar {
             width: 40rem;
